@@ -27,5 +27,5 @@ readyState = map (unsafePartial fromJust <<< parseReadyState) <<< _readyState
 
 foreign import _activeElement :: forall eff. HTMLDocument -> Eff (dom :: DOM | eff) (Nullable HTMLElement)
 
-activeElement :: forall eff. HTMLDocument -> Eff (dom :: DOM | eff) -> Eff (Maybe HTMLElement)
+activeElement :: forall eff. HTMLDocument -> Eff (dom :: DOM | eff) (Maybe HTMLElement)
 activeElement = map toMaybe <<< _activeElement
